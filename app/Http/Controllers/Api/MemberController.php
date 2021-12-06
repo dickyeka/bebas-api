@@ -56,10 +56,10 @@ class MemberController extends Controller
         $result = DB::transaction(function () use ($request) {
             try {
                 $member = Member::create([
-                'user_id' => $request->user()->id,
-                'status' => $request->status,
-                'position' => $request->position
-            ]);
+                    'user_id' => $request->user()->id,
+                    'status' => $request->status,
+                    'position' => $request->position
+                ]);
                 return response()->json($member, 201);
             } catch (\Exception $e) {
                 return response(['error' => 'something went wrong']);
